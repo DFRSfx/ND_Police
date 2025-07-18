@@ -18,16 +18,16 @@ local function checkGsr(state)
         ClearPedEnvDirt(ped)
         ResetPedVisibleDamage(ped)
         lib.notify({
-            type = 'inform',
-            description = 'GSR Washed off'
+            type = 'info',
+            description = 'Resíduos de pólvora removidos'
         })
         state:set('shot', false, true)
     end
 
     if time-lastShot > (Config.clearGSR*60) then
         lib.notify({
-            type = 'inform',
-            description = 'GSR has faded'
+            type = 'info',
+            description = 'Resíduos de pólvora desapareceram'
         })
         state:set('shot', false, true)
     end
@@ -44,7 +44,7 @@ end)
 exports.ox_target:addGlobalPlayer({
     {
         icon = 'fa-solid fa-gun',
-        label = 'GSR Test',
+        label = 'Teste de Resíduos de Pólvora',
         groups = Config.policeGroups,
 	    distance = 1.5,
         onSelect = function(data)

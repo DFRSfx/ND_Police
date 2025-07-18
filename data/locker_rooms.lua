@@ -3,7 +3,7 @@ local menus = {}
 
 
 menus["lspd"] = {
-    title = "Locker room",
+    title = "Vestiário",
     groups = {"lspd"},
     locations = {
         vec3(458.14, -990.82, 30.69)

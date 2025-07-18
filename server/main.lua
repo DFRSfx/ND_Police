@@ -88,14 +88,14 @@ RegisterNetEvent('ND_Police:gsrTest', function(target)
     if state.shot then
         return TriggerClientEvent("ox_lib:notify", src, {
             type = 'success',
-            description = 'Test comes back POSITIVE (Has Shot)'
+            description = 'Teste positivo (disparou arma)'
         })
          
     end
 
     TriggerClientEvent("ox_lib:notify", src, {
         type = 'error',
-        description = 'Test comes back NEGATIVE (Has Not Shot)'
+        description = 'Teste negativo (não disparou arma)'
     })
     
 end)
@@ -111,14 +111,14 @@ RegisterNetEvent("ND_Police:impoundVehicle", function(netId, impoundReclaimPrice
     if not impoundReclaimPrice or impoundReclaimPrice > config.maxImpoundPrice or impoundReclaimPrice < config.minImpoundPrice then
         return TriggerClientEvent("ox_lib:notify", src, {
             type = "error",
-            description = "Invalid impound reclaim price."
+            description = "Preço de resgate do reboque inválido."
         }) 
     end
 
     if not hasJobs(src, config.policeGroups) then
         return TriggerClientEvent("ox_lib:notify", src, {
             type = "error",
-            description = "You don't have permission to do this."
+            description = "Não tem permissão para fazer isto."
         }) 
     end
 
@@ -127,7 +127,7 @@ RegisterNetEvent("ND_Police:impoundVehicle", function(netId, impoundReclaimPrice
     if not DoesEntityExist(vehicle) then
         return TriggerClientEvent("ox_lib:notify", src, {
             type = "error",
-            description = "Vehicle was not found, try again later."
+            description = "Veículo não encontrado, tente novamente mais tarde."
         }) 
     end
 
@@ -137,7 +137,7 @@ RegisterNetEvent("ND_Police:impoundVehicle", function(netId, impoundReclaimPrice
     if #(vehCoords-pedCoords) > 5 then
         return TriggerClientEvent("ox_lib:notify", src, {
             type = "error",
-            description = "You're too far away from the vehicle."
+            description = "Está muito longe do veículo."
         }) 
     end
     

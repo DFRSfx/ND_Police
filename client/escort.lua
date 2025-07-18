@@ -42,7 +42,7 @@ exports.ox_target:addGlobalPlayer({
     {
         name = 'escort',
         icon = 'fas fa-hands-bound',
-        label = 'Escort',
+        label = 'Escortar',
         distance = 1.5,
         canInteract = function(entity)
             return IsPedCuffed(entity) and not IsEntityAttachedToEntity(entity, cache.ped) and not playerState.invBusy
@@ -54,7 +54,7 @@ exports.ox_target:addGlobalPlayer({
     {
         name = 'release',
         icon = 'fas fa-hands-bound',
-        label = 'Release',
+        label = 'Libertar',
         distance = 1.5,
         canInteract = function(entity)
             return IsPedCuffed(entity) and IsEntityAttachedToEntity(entity, cache.ped) and not playerState.invBusy
@@ -66,7 +66,7 @@ exports.ox_target:addGlobalPlayer({
     {
         name = "ND_Police:vehicleEscort",
         icon = "fa-solid fa-right-to-bracket",
-        label = "Place in vehicle",
+        label = "Colocar no veículo",
         distance = 1.5,
         canInteract = function(entity)
             local ped = cache.ped

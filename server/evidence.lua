@@ -4,8 +4,8 @@ local clearEvidence = {}
 local evidenceMetadata = lib.load("data.evidence")
 
 local bulletText = {
-    projectile = "Projectile from ",
-    casing = "Casing from "
+    projectile = "Projétil de ",
+    casing = "Invólucro de "
 }
 
 Ox_inventory:registerHook('createItem', function(payload)

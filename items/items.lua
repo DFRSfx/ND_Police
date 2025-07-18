@@ -1,6 +1,6 @@
 return {
     ["shield"] = {
-        label = "Police shield",
+        label = "Escudo policial",
         weight = 8000,
         stack = false,
         consume = 0,
@@ -19,29 +19,29 @@ return {
         }
     },
     ["spikestrip"] = {
-        label = "Spikestrip",
+        label = "Faixa de pregos",
         weight = 500,
         client = {
             export = "ND_Police.deploySpikestrip"
         }
     },
     ["cuffs"] = {
-        label = "Handcuffs",
+        label = "Algemas",
         weight = 150,
         client = {
             export = "ND_Police.cuff"
         }
     },
     ["zipties"] = {
-        label = "Zipties",
+        label = "Abraçadeiras",
         weight = 10,
         client = {
             export = "ND_Police.ziptie"
         }
     },
     ["tools"] = {
-	label = "Tools",
-        description = "Can be used to hotwire vehicles.",
+	label = "Ferramentas",
+        description = "Podem ser usadas para ligar veículos à chupeta.",
 	weight = 800,
 	consume = 1,
         stack = true,
@@ -52,16 +52,16 @@ return {
 		}
 	},
     ["handcuffkey"] = {
-        label = "Handcuff key",
+        label = "Chave das algemas",
         weight = 10,
         client = {
             export = "ND_Police.uncuff"
         }
     },
     ["casing"] = {
-        label = "Bullet Casing"
+        label = "Invólucro de bala"
     },
     ["projectile"] = {
-        label = "Projectile"
+        label = "Projétil"
     },
 }

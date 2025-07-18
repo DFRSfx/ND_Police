@@ -62,16 +62,6 @@ end
 local function getLockerOptions(lockerOptions, menu)
     local options = {}
 
-    if GetResourceState("ND_AppearanceShops") == "started" then
-        options[#options+1] = {
-            title = "View saved outfits",
-            icon = "fa-solid fa-shirt",
-            onSelect = function()
-                exports["ND_AppearanceShops"]:openWardrobe(menu)
-            end
-        }
-    end
-
     for i=1, #lockerOptions do
         local opt = lockerOptions[i]
         options[#options+1] = {
@@ -83,8 +73,8 @@ local function getLockerOptions(lockerOptions, menu)
                 local model = GetEntityModel(ped)
                 if model ~= `mp_m_freemode_01` and model ~= `mp_f_freemode_01` then
                     return lib.notify({
-                        title = "Unable to set otufit",
-                        description = "Your player model is not supported.",
+                        title = "Não é possível equipar o uniforme",
+                        description = "O seu modelo de personagem não é suportado.",
                         type = "error",
                         duration = 5000
                     })
@@ -93,8 +83,8 @@ local function getLockerOptions(lockerOptions, menu)
                 local clothing = opt.clothing[model == `mp_m_freemode_01` and "male" or "female"]
                 if not clothing then
                     return lib.notify({
-                        title = "Unable to set otufit",
-                        description = "Your player model is not supported.",
+                        title = "Não é possível equipar o uniforme",
+                        description = "O seu modelo de personagem não é suportado.",
                         type = "error",
                         duration = 5000
                     })
