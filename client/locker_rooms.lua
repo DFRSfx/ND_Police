@@ -1,4 +1,5 @@
 local data_lockers = lib.load("data.locker_rooms")
+local QBCore = exports["qb-core"]:GetCoreObject()
 
 local clothingComponents = {
     face = 0,
@@ -22,6 +23,19 @@ local clothingProps = {
     watch = 6,
     bracelets = 7
 }
+
+local function hasGroup(groups)
+    if not groups then return end
+
+    local player = QBCore.Functions.GetPlayerData()
+    local jobName = player and player.job.name
+
+    for i=1, #groups do
+        if jobName == groups[i] then
+            return true
+        end
+    end
+end
 
 local function setClothing(ped, clothing)
     if not clothing then return end
@@ -63,12 +77,12 @@ local function getLockerOptions(lockerOptions, menu)
         options[#options+1] = {
             title = opt.title,
             icon = "fa-solid fa-shirt",
-            disabled = not Bridge.hasGroup(opt.groups),
+            disabled = not hasGroup(opt.groups),
             onSelect = function()
                 local ped = cache.ped
                 local model = GetEntityModel(ped)
                 if model ~= `mp_m_freemode_01` and model ~= `mp_f_freemode_01` then
-                    return Bridge.notify({
+                    return lib.notify({
                         title = "Unable to set otufit",
                         description = "Your player model is not supported.",
                         type = "error",
@@ -78,7 +92,7 @@ local function getLockerOptions(lockerOptions, menu)
 
                 local clothing = opt.clothing[model == `mp_m_freemode_01` and "male" or "female"]
                 if not clothing then
-                    return Bridge.notify({
+                    return lib.notify({
                         title = "Unable to set otufit",
                         description = "Your player model is not supported.",
                         type = "error",
@@ -104,7 +118,7 @@ for locker, info in pairs(data_lockers) do
         })
 
         function point:onEnter()
-            info.canEnter = Bridge.hasGroup(info.groups)
+            info.canEnter = hasGroup(info.groups)
         end
          
         function point:nearby()
@@ -138,7 +152,7 @@ RegisterNetEvent("ND:updateCharacter", function(_, dataChanged)
     Wait(100)
     for locker, info in pairs(data_lockers) do
         for i=1, #info.locations do
-            info.canEnter = Bridge.hasGroup(info.groups)
+            info.canEnter = hasGroup(info.groups)
         end
     end
 end)

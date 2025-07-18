@@ -1,11 +1,12 @@
 local data_shotspotter = lib.load("data.shotspotter")
 local lastTrigger = 0
+local QBCore = exports["qb-core"]:GetCoreObject()
 
 local function hasIgnoredJob()
-    local player = Bridge.getPlayer()
+    local player = QBCore.Functions.GetPlayerData()
     for i=1, #data_shotspotter.ignoredJobs do
         local job = data_shotspotter.ignoredJobs[i]
-        if Bridge.doesPlayerHaveJob(player, job) then
+        if player and player.job.name == job then
             return true
         end
     end

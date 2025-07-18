@@ -119,7 +119,7 @@ local function enableShield()
     local ped = cache.ped
     local hasWeapon, weaponHash = GetCurrentPedWeapon(ped, true)
     if not hasWeapon or GetWeapontypeGroup(weaponHash) ~= 416676503 then
-        return Bridge.notify({
+        return lib.notify({
             title = "You must hold a handgun",
             type = "inform"
         })
